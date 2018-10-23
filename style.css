@@ -1,0 +1,119 @@
+/* 
+ * AZUL 1: #002A3A | rgba(0,42,58,1)
+ * AZUL 2: #003349 | rgba(0,51,73,1)
+ * AMARELO: #FFCD00 | rgba(255,205,0,1)
+ * VERDE: #00B388 | rgba(0,179,136,1);
+ * BRANCO: #FFFFFF | rgba(255,255,255,1)
+ */
+
+ @import url('https://fonts.googleapis.com/css?family=Lato|Titillium+Web');
+
+/*font-family: 'Lato', sans-serif;
+font-family: 'Titillium Web', sans-serif;*/
+
+ body {
+ 	background-color: #003349;
+ 	font-family: 'Lato',sans-serif;
+ 	overflow: hidden;
+ }
+
+ h1,h2,h3,h4,h5,h6 {
+ 	font-family: 'Titillium Web', sans-serif;
+ }
+
+ h1, h2, h3 {
+ 	color: #003349;
+ }
+
+ h3 {
+ 	padding: 10px 15px;
+ 	background-color: #00B388;
+ 	color: white;
+ }
+
+ #compra {
+ 	min-height: 65vh;
+ }
+
+ #listagem {
+ 	min-height: 94%;
+ 	padding: 15px;
+ }
+
+ #lista {
+ 	background-color: white;
+ 	min-height: 98%;
+ }
+
+ #lista>table {
+ 	width: 98%;
+ }
+
+ #lista>table>thead {
+ 	text-align: center;
+ }
+
+ th {
+ 	background-color: #002A3A;
+ 	color: white;
+ 	border: 1px solid white;
+ 	padding: 2px;
+ }
+
+ th#cod {
+ 	width: 10%;
+ }
+
+ th#dsc {
+ 	width: 70%;
+ }
+
+ th#qtd {
+ 	width: 10%;
+ }
+
+ th#prc {
+ 	width: 10%;
+ }
+
+ #adicionar {
+ 	padding: 15px 30px 15px 15px;
+ 	min-height: 95%;
+ }
+
+ #adicionar .row {
+ 	background-color: white;
+ }
+
+ #adicionar #detalhes {
+ 	height: 75%;
+ 	padding-bottom: 20px;
+ }
+
+ #adicionar #entrada {
+ 	min-height: 28%;
+ 	background-color: #003349;
+ }
+
+#codigo {
+	margin-top: 15px;
+} 
+
+#cadastro {
+	padding: 0px 15px;
+}
+
+#cadastro .col-md-12 {
+	background-color: white;
+	height: 25vh;
+}
+
+#cadastrar-produto {
+	border-radius: 100px; 
+	position: absolute; 
+	right: 20px; 
+	bottom: 20px; 
+	font-size: 20pt; 
+	width: 60px; 
+	height: 60px;
+}

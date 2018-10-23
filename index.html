@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Frente de Caixa</title>
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta charset="utf-8">
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body>
+		<div class="container-fluid">
+			<section class="row" id="compra">
+				<div class="col-md-5" id="listagem">
+					<div id="lista">
+						<h3>Produtos comprados</h3>
+
+						<table class="mx-auto">
+							<thead>
+								<th id="cod">Cod.</th>
+								<th id="dsc">Descrição</th>
+								<th id="qtd">Qtd.</th>
+								<th id="prc">Prç.</th>
+							</thead>
+							<tbody>
+								<tr>
+									<td colspan="4" style="text-align: center; color: #888; padding: 10px;">Não há produtos na compra.</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="col-md-7" id="adicionar">
+					<div class="row" id="detalhes">
+						<div class="w-100"><h3>Detalhes do produto</h3></div>
+
+						<div class="col-md-3">
+							<img src="img/000.jpg" class="img-fluid">
+						</div>
+						<div class="col-md-7">
+								<h4>
+									<strong id="codigo">Código:</strong>
+									<span id="id">000</span>
+								</h4>
+								<h4>
+									<strong id="descricao">Descrição:</strong>
+									<span id="id">Produto genérico / Kg</span>
+								</h4>
+								<h4>
+									<strong id="unidade">Preço: </strong>
+									<span id="id">R$ 15,90</span>
+								</h4>
+								<h4>
+									<strong id="unidade">Preço total: </strong>
+									<span id="id">R$ 159,00</span>
+								</h4>
+								<h4>
+									<strong id="unidade">Estoque: </strong>
+									<span id="id">20</span>
+								</h4>								
+						</div>
+						<div class="col-md-2">
+							<div class="align-middle" style="display: inline-block; margin-top: 50%">
+								<div class="btn-group-vertical">
+									<button class="btn btn-success"><strong>+</strong></button>
+									<button class="btn btn-danger"><strong>-</strong></button>
+								</div>
+								&nbsp;
+								<strong style="font-size: 18pt" class="align-middle">0</strong>								
+							</div>							
+						</div>
+					</div>
+					<div class="row" id="entrada">
+						<div class="col-sm-12">
+							<input type="text" class="form-control form-control-lg" maxlength="3" placeholder="Insira o código do produto" id="codigo">
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="row" id="cadastro">
+				<div class="w-100"><h3 style="margin-bottom: 0">Cadastro de produtos</h3>	
+				<div></div>
+				<div class="col-md-12">
+					<form class="form-inline py-4">
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<label for="cCodigo" class="input-group-text"><strong>Código</strong></label>
+							</div>
+							<input type="text" maxlength="3" id="cCodigo" class="form-control" size="14" placeholder="Código de 3 dígitos">
+						</div>						
+						&emsp;
+						<div class="input-group my-2">
+							<div class="input-group-prepend">
+								<label for="cDescricao" class="input-group-text"><strong>Descrição</strong></label>
+							</div>
+							<input type="text" id="cDescricao" class="form-control" size="30" placeholder="Descrição do produto">
+						</div>
+						&emsp;
+						<div class="input-group my-2">
+							<div class="input-group-prepend">
+								<label for="cPreco" class="input-group-text"><strong>R$</strong></label>
+							</div>
+							<input type="text" id="cPreco" class="form-control" size="14" placeholder="Preço da unidade">
+						</div>						
+						&emsp;
+						<div class="input-group my-2">
+							<div class="input-group-prepend">
+								<label for="cEstoque" class="input-group-text"><strong>Estoque</strong></label>
+							</div>
+							<input type="number" id="cQuantidade" class="form-control" size="14" placeholder="Quantidade em estoque">
+						</div>						
+						&emsp;
+						<div class="input-group my-2">
+							<div class="input-group-prepend">
+								<label for="cImagem" class="input-group-text"><strong>Imagem</strong></label>
+							</div>
+							<input type="file" id="cImagem" class="form-control">
+						</div>		
+					</form>
+					<button class="btn btn-primary" id="cadastrar-produto">
+						<strong>+</strong></button>
+				</div>
+			</section>
+		</div>
+	</body>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+			//$(this).val().substring(12,$(this).val().length);
+	</script>
+
+</html>
