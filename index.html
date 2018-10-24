@@ -17,7 +17,7 @@
 
 						<table class="mx-auto">
 							<thead>
-								<th id="cod">Cod.</th>
+								<th id="cod">Cód.</th>
 								<th id="dsc">Descrição</th>
 								<th id="qtd">Qtd.</th>
 								<th id="prc">Prç.</th>
@@ -25,7 +25,7 @@
 							</thead>
 							<tbody>
 								<tr>
-									<td colspan="4" style="text-align: center; color: #888; padding: 10px;">Não há produtos na compra.</td>
+									<td colspan="5" style="text-align: center; color: #888; padding: 10px;">Não há produtos na compra.</td>
 								</tr>
 							</tbody>
 						</table>
@@ -40,24 +40,24 @@
 						</div>
 						<div class="col-md-7">
 								<h4>
-									<strong id="codigo">Código:</strong>
-									<span id="id">000</span>
+									<strong>Código:</strong>
+									<span id="codigo"></span>
 								</h4>
 								<h4>
-									<strong id="descricao">Descrição:</strong>
-									<span id="id">Produto genérico / Kg</span>
+									<strong>Descrição:</strong>
+									<span id="descricao"></span>
 								</h4>
 								<h4>
-									<strong id="unidade">Preço: </strong>
-									<span id="id">R$ 15,90</span>
+									<strong>Preço: </strong>
+									<span id="preco"></span>
 								</h4>
 								<h4>
-									<strong id="unidade">Preço total: </strong>
-									<span id="id">R$ 159,00</span>
+									<strong>Preço total: </strong>
+									<span id="total"></span>
 								</h4>
 								<h4>
-									<strong id="unidade">Estoque: </strong>
-									<span id="id">20</span>
+									<strong>Estoque: </strong>
+									<span id="estoque"></span>
 								</h4>
 						</div>
 						<div class="col-md-2">
@@ -73,9 +73,9 @@
 					</div>
 					<div class="row" id="entrada">
 						<div class="col-sm-12">
-							<form class="form-inline">
-								<input type="text" class="form-control form-control-lg rounded-left" maxlength="3" placeholder="Insira o código do produto" id="codigo">
-								<button class="btn btn-primary form-control-lg mt-3 ml-3" id="btn-adicionar">Adicionar ao carrinho</button>
+							<form class="form-inline mt-3">
+								<input type="text" class="form-control form-control-lg rounded-left" maxlength="3" placeholder="Insira o código do produto" id="search">
+								<button class="btn btn-primary form-control-lg ml-3" id="btn-adicionar" disabled>Adicionar ao carrinho</button>
 							</form>
 						</div>
 					</div>

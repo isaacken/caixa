@@ -1,4 +1,5 @@
 var produtos = new Array();
+var lastCod = "";
 
 $("#cadastrar-produto").on("click",function() {
   var produto = new Object();
@@ -58,4 +59,25 @@ $("#cadastrar-produto").on("click",function() {
 
     alert("Produto cadastrado!");
   }
+});
+
+$("#search").on("keyup teste",function() {
+  var codigo = $(this).val();
+
+  if (codigo == lastCod) return;
+
+  if (codigo.length == 3) {
+    if (produtos.find(p => p.codigo = codigo)) {
+      var produto = produtos.find(p => p.codigo = codigo);
+      console.log(produto);
+    } else {
+
+    }
+
+    $("#btn-adicionar").removeAttr("disabled");
+  } else {
+    $("#btn-adicionar").attr("disabled","disabled");
+  }
+
+  lastCod = codigo;
 });
