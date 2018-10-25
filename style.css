@@ -31,6 +31,16 @@ font-family: 'Titillium Web', sans-serif;*/
  	color: white;
  }
 
+ #total-carrinho {
+   background-color: #002A3A;
+   width: 98%;
+   margin: 0px auto;
+   padding:4px;
+   font-weight: bold;
+   color: white;
+   border: 1px solid white;
+ }
+
  #compra {
  	min-height: 65vh;
  }

@@ -1,8 +1,11 @@
 var produtos = new Array();
 var lastCod = "";
+var produto = new Object();
+var qtd;
+var total = 0;
 
 $("#cadastrar-produto").on("click",function() {
-  var produto = new Object();
+  produto = new Object();
   var valid = true;
 
   if ($("#cCodigo").val() == "") {
@@ -67,17 +70,103 @@ $("#search").on("keyup teste",function() {
   if (codigo == lastCod) return;
 
   if (codigo.length == 3) {
-    if (produtos.find(p => p.codigo = codigo)) {
-      var produto = produtos.find(p => p.codigo = codigo);
-      console.log(produto);
+    if (produto = produtos.find(p => p.codigo = codigo)) {
+      $("#codigo").html(produto.codigo);
+      $("#descricao").html(produto.descricao);
+      $("#preco").html("R$"+produto.preco);
+      $("#total").html("R$"+produto.preco);
+      $("#estoque").html(produto.estoque);
+      $("#imagem").attr("src","img/"+produto.imagem);
+      $("#quantidade").html("0");
+
+      $("#addProd").removeAttr("disabled");
+      $("#remProd").removeAttr("disabled");
     } else {
-
+      $("#btn-adicionar").attr("disabled","disabled");
+      $("#addProd").attr("disabled","disabled");
+      $("#remProd").attr("disabled","disabled");
+      limparDetalhes();
     }
-
-    $("#btn-adicionar").removeAttr("disabled");
   } else {
     $("#btn-adicionar").attr("disabled","disabled");
+    $("#addProd").attr("disabled","disabled");
+    $("#remProd").attr("disabled","disabled");
+    limparDetalhes();
   }
 
   lastCod = codigo;
+});
+
+function limparDetalhes() {
+  $("#imagem").attr("src","img/000.jpg");
+  $("#codigo").html("");
+  $("#descricao").html("");
+  $("#preco").html("");
+  $("#total").html("");
+  $("#estoque").html("");
+  $("#quantidade").html("0");
+}
+
+$("#addProd").on("click",function() {
+  if (produto.estoque > 0) {
+    qtd = parseInt($("#quantidade").html());
+    qtd++;
+    $("#quantidade").html(qtd);
+    produto.estoque = parseInt($("#estoque").html());
+    produto.estoque--;
+    $("#estoque").html(produto.estoque);
+    $("#total").html("R$"+produto.preco*qtd);
+
+    if (produto.estoque == 0) {
+      $("#addProd").attr("disabled","disabled");
+    }
+
+    if (qtd > 0) {
+      $("#remProd").removeAttr("disabled");
+      $("#btn-adicionar").removeAttr("disabled");
+    }
+  }
+});
+
+$("#remProd").on("click",function() {
+  qtd = parseInt($("#quantidade").html());
+
+  if (qtd > 0) {
+    qtd--;
+    $("#quantidade").html(qtd);
+    produto.estoque = parseInt($("#estoque").html());
+    produto.estoque++;
+    $("#estoque").html(produto.estoque);
+    $("#total").html("R$"+produto.preco*qtd);
+
+    if (qtd == 0) {
+      $("#remProd").attr("disabled","disabled");
+      $("#btn-adicionar").attr("disabled","disabled");
+    }
+
+    if (produto.estoque > 0) {
+      $("#addProd").removeAttr("disabled");
+    }
+  }
+});
+
+$("#btn-adicionar").on("click",function(e) {
+  e.preventDefault();
+
+  $("#carrinho-vazio").remove();
+  $("#carrinho tbody").append("<tr>"+
+    "<td>"+produto.codigo+"</td>"+
+    "<td>"+produto.descricao+"</td>"+
+    "<td>x"+qtd+"</td>"+
+    "<td>R$"+produto.preco+"</td>"+
+    "<td>R$"+qtd*produto.preco+"</td>"+
+  "</tr>");
+
+  total+=qtd*produto.preco;
+  $("#total-carrinho span").html("R$"+total);
+
+  limparDetalhes();
+  $("#btn-adicionar").attr("disabled","disabled");
+  $("#addProd").attr("disabled","disabled");
+  $("#remProd").attr("disabled","disabled");
 });

@@ -15,7 +15,8 @@
 					<div id="lista">
 						<h3>Produtos comprados</h3>
 
-						<table class="mx-auto">
+						<p id="total-carrinho">Total: <span>R$ 0</span></p>
+						<table class="mx-auto" id="carrinho">
 							<thead>
 								<th id="cod">Cód.</th>
 								<th id="dsc">Descrição</th>
@@ -24,7 +25,7 @@
 								<th id="tot">Total</th>
 							</thead>
 							<tbody>
-								<tr>
+								<tr id="carrinho-vazio">
 									<td colspan="5" style="text-align: center; color: #888; padding: 10px;">Não há produtos na compra.</td>
 								</tr>
 							</tbody>
@@ -36,7 +37,7 @@
 						<div class="w-100"><h3>Detalhes do produto</h3></div>
 
 						<div class="col-md-3">
-							<img src="img/000.jpg" class="img-fluid">
+							<img src="img/000.jpg" class="img-fluid" id="imagem">
 						</div>
 						<div class="col-md-7">
 								<h4>
@@ -63,11 +64,11 @@
 						<div class="col-md-2">
 							<div class="align-middle" style="display: inline-block; margin-top: 50%">
 								<div class="btn-group-vertical">
-									<button class="btn btn-success"><strong>+</strong></button>
-									<button class="btn btn-danger"><strong>-</strong></button>
+									<button class="btn btn-success" id="addProd" disabled><strong>+</strong></button>
+									<button class="btn btn-danger" id="remProd" disabled><strong>-</strong></button>
 								</div>
 								&nbsp;
-								<strong style="font-size: 18pt" class="align-middle">0</strong>
+								<strong style="font-size: 18pt" class="align-middle" id="quantidade">0</strong>
 							</div>
 						</div>
 					</div>
