@@ -1,7 +1,7 @@
 var produtos = new Array();
 var lastCod = "";
 var produto = new Object();
-var qtd;
+var qtd = 0;
 var total = 0;
 
 $("#cadastrar-produto").on("click",function() {
@@ -38,8 +38,8 @@ $("#cadastrar-produto").on("click",function() {
 
   produto.codigo = $("#cCodigo").val();
   produto.descricao = $("#cDescricao").val();
-  produto.preco = $("#cPreco").val();
-  produto.estoque = $("#cEstoque").val();
+  produto.preco = parseFloat($("#cPreco").val().replace(",","."));
+  produto.estoque = parseInt($("#cEstoque").val());
 
   if ($("#cImagem").prop("files")[0].name == "") {
     produto.imagem = "000.jpg";
@@ -70,11 +70,11 @@ $("#search").on("keyup teste",function() {
   if (codigo == lastCod) return;
 
   if (codigo.length == 3) {
-    if (produto = produtos.find(p => p.codigo = codigo)) {
+    if (produto = produtos.find(p => p.codigo == codigo)) {
       $("#codigo").html(produto.codigo);
       $("#descricao").html(produto.descricao);
-      $("#preco").html("R$"+produto.preco);
-      $("#total").html("R$"+produto.preco);
+      $("#preco").html("R$"+produto.preco.toFixed(2).replace(".",","));
+      $("#total").html("R$0,00");
       $("#estoque").html(produto.estoque);
       $("#imagem").attr("src","img/"+produto.imagem);
       $("#quantidade").html("0");
@@ -88,6 +88,7 @@ $("#search").on("keyup teste",function() {
       limparDetalhes();
     }
   } else {
+    produto.estoque+=qtd;
     $("#btn-adicionar").attr("disabled","disabled");
     $("#addProd").attr("disabled","disabled");
     $("#remProd").attr("disabled","disabled");
@@ -105,6 +106,9 @@ function limparDetalhes() {
   $("#total").html("");
   $("#estoque").html("");
   $("#quantidade").html("0");
+
+  qtd = 0;
+  produto = new Object();
 }
 
 $("#addProd").on("click",function() {
@@ -115,7 +119,7 @@ $("#addProd").on("click",function() {
     produto.estoque = parseInt($("#estoque").html());
     produto.estoque--;
     $("#estoque").html(produto.estoque);
-    $("#total").html("R$"+produto.preco*qtd);
+    $("#total").html("R$"+(produto.preco*qtd).toFixed(2).replace(".",","));
 
     if (produto.estoque == 0) {
       $("#addProd").attr("disabled","disabled");
@@ -137,7 +141,7 @@ $("#remProd").on("click",function() {
     produto.estoque = parseInt($("#estoque").html());
     produto.estoque++;
     $("#estoque").html(produto.estoque);
-    $("#total").html("R$"+produto.preco*qtd);
+    $("#total").html("R$"+(produto.preco*qtd).toFixed(2).replace(".",","));
 
     if (qtd == 0) {
       $("#remProd").attr("disabled","disabled");
@@ -158,12 +162,12 @@ $("#btn-adicionar").on("click",function(e) {
     "<td>"+produto.codigo+"</td>"+
     "<td>"+produto.descricao+"</td>"+
     "<td>x"+qtd+"</td>"+
-    "<td>R$"+produto.preco+"</td>"+
-    "<td>R$"+qtd*produto.preco+"</td>"+
+    "<td>R$"+produto.preco.toFixed(2).replace(".",",")+"</td>"+
+    "<td>R$"+(qtd*produto.preco).toFixed(2).replace(".",",")+"</td>"+
   "</tr>");
 
   total+=qtd*produto.preco;
-  $("#total-carrinho span").html("R$"+total);
+  $("#total-carrinho span").html("R$"+total.toFixed(2).replace(".",","));
 
   limparDetalhes();
   $("#btn-adicionar").attr("disabled","disabled");
