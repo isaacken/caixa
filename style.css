@@ -59,30 +59,34 @@ font-family: 'Titillium Web', sans-serif;*/
  	min-height: 98%;
  }
 
- #lista>table {
+ #lista>#carrinho  {
  	width: 98%;
  }
 
- #lista>table>thead {
+ #lista>#carrinho>thead {
  	text-align: center;
  }
 
- th {
+ #carrinho th {
  	background-color: #002A3A;
  	color: white;
  	border: 1px solid white;
  	padding: 2px;
  }
 
- th#cod {
+ th {
+   text-align: center;
+ }
+
+ th.cod {
  	width: 10%;
  }
 
- th#dsc {
+ th.dsc {
  	width: 54%;
  }
 
- th#qtd, th#prc, th#tot {
+ th.qtd, th.prc, th.tot {
  	width: 12%;
  }
 
@@ -126,12 +130,15 @@ font-family: 'Titillium Web', sans-serif;*/
 	height: 25vh;
 }
 
-#cadastrar-produto {
-	border-radius: 100px;
-	position: absolute;
+#buttons {
+  position: absolute;
 	right: 20px;
 	bottom: 20px;
-	font-size: 20pt;
+}
+
+#cadastrar-produto, #listar-produtos {
+	border-radius: 100px;
+	font-size: 16pt;
 	width: 60px;
 	height: 60px;
 }
@@ -141,4 +148,14 @@ font-family: 'Titillium Web', sans-serif;*/
   max-height: 280px;
   overflow-y: auto;
   -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+#lista-produtos {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#lista-produtos td {
+  border: 1px solid rgba(0,0,0,.15);
+  padding: 5px 10px;
 }

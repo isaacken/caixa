@@ -60,6 +60,17 @@ $("#cadastrar-produto").on("click",function() {
     $("#cEstoque").val("");
     $("#cImagem").prop("");
 
+    $("#lista-vazia").remove();
+    $("#lista-produtos tbody").append(
+      "<tr>"+
+        "<td style='text-align: center'><img width='40px' height='40px' src='img/"+produto.imagem+"'</td>"+
+        "<td>"+produto.codigo+"</td>"+
+        "<td>"+produto.descricao+"</td>"+
+        "<td>"+produto.estoque+"</td>"+
+        "<td>R$ "+(produto.preco).toFixed(2).replace(".",",")+"</td>"+
+      "</tr>"
+    );
+
     alert("Produto cadastrado!");
   }
 });
